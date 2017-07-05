@@ -13,6 +13,16 @@ then Tensorflow v1.1 and opencv v3.1
 the rest of the packages is best installed with anaconda or pip. No comprehensive list of packages is given here.
 Also, some imports may actually not be used, hence proceed with some trials.
 
+## Out-of-box-testing
+The parameters in the main Python file are set to use the Data Reader with artifical images and corresponding labels.
+Hence no need for real images. The UNET generated is a 3 layer variety and should execute quite swiftly
+As the batch size is set to 4, enough local memory should be available for the CPU
+Create a directory "logs" so that events and model checkpoints can be saved in local subdirectories
+Best to overlook progress of training is with Tensorboard. Launch it within the "logs" directory with
+
+tensorboard --logdir "subdirectory_name created by the script"
+
+
 ## File Description
 
 FCN_jul4.py 			:  main file to launch the training.
@@ -28,12 +38,15 @@ TensorflowUtils.py      :  generic utilities
 ## Notebook Description
 
 Inference Greyscale FCN-UNET.ipynb 	:   launches the inference on samples and visualises result
+	
+	ATTENTION  : THIS NOTEBOOK IS FOR THE KERAS BASED FCN
+
 
 ROI processing-Jul4-stripped.ipynb  :   creates the data structure for medical images based on DICOM files and text files 
                                         for ROIs. When done, zip the content and copy it into the data... folder
 
 HUG_data_reader.ipynb    			:    visualisation of data from the 2 Readers
-										 ATTENTION  : THIS NOTEBOOK IS FOR THE KERAS BASED FCN
+										 
 
 
 
